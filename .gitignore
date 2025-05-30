@@ -1,0 +1,26 @@
+# Ignore Python cache
+__pycache__/
+*.py[cod]
+
+# Ignore database and CSV data
+*.sqlite3
+*.csv
+
+# Ignore virtual environments
+venv/
+env/
+
+# Ignore secret keys and environment configs
+.env
+
+# Ignore static and media cache (optional)
+staticfiles/
+media/
+
+# Ignore IDE/editor config folders
+.vscode/
+.idea/
+
+# Ignore migration files (optional, if you don't want to upload them)
+**/migrations/*.py
+!**/migrations/__init__.py
