@@ -1,0 +1,3 @@
+username,password,full_name,email,club,role
+neha,pbkdf2_sha256$600000$IULtifdC9lnS690MhGZusF$Dj9QL4rpwDgsiLKCAHC8gYE+q1B9T8c99BlbdbKf8Rs=,Neha Sultan,neha@gmail.com,gym,Member
+nighat,pbkdf2_sha256$600000$X0aqvNgBoMv7icSNDmrToA$2xfjtbuP5FRl+lFvmTs35LXckW9yZT+yGRO1iSOdkdg=,nighat m,nighat@gmail.com,Yoga,Instructor

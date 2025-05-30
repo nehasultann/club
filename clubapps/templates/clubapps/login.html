@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        body.login-page, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: url("{% static 'css/images/bg.jpg' %}") no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .login-background {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            backdrop-filter: blur(2px);
+            background-color: rgba(255, 255, 255, 0.1); /* subtle overlay */
+        }
+
+        .login-box {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .login-title {
+            font-size: 1.8rem;
+            color: #6a1b9a;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px 15px;
+            margin: 10px 0;
+            border: 1.5px solid #ccc;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #ec407a;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            border-radius: 25px;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-weight: 600;
+        }
+
+        .login-button:hover {
+            background-color: #d81b60;
+        }
+
+        .error-text {
+            color: red;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .register-link {
+            margin-top: 20px;
+            font-size: 0.95rem;
+        }
+
+        .register-link a {
+            color: #6a1b9a;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body class="login-page">
+    <div class="login-background">
+        <div class="login-box">
+            <h2 class="login-title">🔐 Welcome to Club Portal</h2>
+            <form method="post">
+                {% csrf_token %}
+                <input type="text" name="username" placeholder="Username" class="input-field" required>
+                <input type="password" name="password" placeholder="Password" class="input-field" required>
+                <button type="submit" class="login-button">Login</button>
+                {% if error %}
+                    <p class="error-text">{{ error }}</p>
+                {% endif %}
+            </form>
+            <p class="register-link">Don't have an account? <a href="{% url 'signup' %}">Register</a></p>
+        </div>
+    </div>
+</body>
+</html>

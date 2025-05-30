@@ -1,0 +1,161 @@
+{% extends 'clubapps/base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body, html {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #f0f8ff, #e6f7ff);
+        margin: 0;
+        padding: 0;
+    }
+
+    .dashboard-container {
+        padding: 20px;
+        max-width: 1000px;
+        margin: auto;
+        text-align: center;
+    }
+
+    .welcome-title {
+        font-size: 2.2rem;
+        margin-bottom: 10px;
+        color: #4b0082;
+        font-weight: 600;
+    }
+
+    .welcome-text {
+        font-size: 1rem;
+        margin-bottom: 30px;
+        color: #444;
+    }
+
+    .activities-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 25px;
+        margin-top: 30px;
+    }
+
+    .activity-card {
+        position: relative;
+        overflow: hidden;
+        background: #fff;
+        border-radius: 15px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .activity-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .activity-card img {
+        width: 100%;
+        height: auto;
+        max-height: 160px;
+        object-fit: cover;
+        border-radius: 15px 15px 0 0;
+    }
+
+    .activity-card h3 {
+        margin: 10px 0;
+        font-size: 1.2rem;
+        color: #333;
+    }
+
+    .activity-description {
+        opacity: 0;
+        max-height: 0;
+        transition: opacity 0.3s ease, max-height 0.3s ease;
+        font-size: 0.9rem;
+        padding: 0 15px 15px;
+        color: #666;
+    }
+
+    .activity-card:hover .activity-description {
+        opacity: 1;
+        max-height: 200px;
+    }
+
+    .user-greeting {
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    .user-greeting h2 {
+        font-size: 1.5rem;
+        color: #333;
+    }
+
+    .user-greeting p {
+        color: #555;
+    }
+
+    .user-greeting a {
+        text-decoration: none;
+        color: white;
+        background-color: #ff69b4;
+        padding: 10px 20px;
+        border-radius: 25px;
+        font-weight: 600;
+        transition: background-color 0.3s;
+    }
+
+    .user-greeting a:hover {
+        background-color: #e754b6;
+    }
+</style>
+
+<div class="dashboard-container">
+    <h1 class="welcome-title">🏆 Welcome to the Club Hub</h1>
+    <p class="welcome-text">
+        This club is a vibrant space for students passionate about sports, teamwork, and personal growth.
+        Whether you love cricket, football, badminton, or athletics – we have something exciting for everyone!
+        Join us to enhance your skills, make friends, and build lasting memories. 💪
+    </p>
+
+    <div class="activities-grid">
+        <div class="activity-card">
+            <img src="{% static 'css/images/football.jpg' %}" alt="Football">
+            <h3>Football Club</h3>
+            <div class="activity-description">
+                Join our Football Club and master team play, endurance, and strategy! ⚽<br>
+                <strong>Registration Fee:</strong> ₹200
+            </div>
+        </div>
+        <div class="activity-card">
+            <img src="{% static 'css/images/cricket.jpg' %}" alt="Cricket">
+            <h3>Cricket Team</h3>
+            <div class="activity-description">
+                Be part of the Cricket Team and swing for the fences! 🏏<br>
+                <strong>Registration Fee:</strong> ₹250
+            </div>
+        </div>
+        <div class="activity-card">
+            <img src="{% static 'css/images/badminton.jpg' %}" alt="Badminton">
+            <h3>Badminton League</h3>
+            <div class="activity-description">
+                Smash your way to glory in the Badminton League! 🏸<br>
+                <strong>Registration Fee:</strong> ₹150
+            </div>
+        </div>
+        <div class="activity-card">
+            <img src="{% static 'css/images/athletics.jpg' %}" alt="Athletics">
+            <h3>Track & Field</h3>
+            <div class="activity-description">
+                Run, jump, and throw in our Athletics program! 🏃‍♂️<br>
+                <strong>Registration Fee:</strong> ₹100
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="user-greeting">
+    <h2>Welcome, {{ username }}</h2>
+    <p>You are now logged in.</p>
+    <a href="{% url 'logout' %}" style="margin-top: 15px; display: inline-block;">Logout</a>
+</div>
+{% endblock %}

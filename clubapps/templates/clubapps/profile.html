@@ -1,0 +1,115 @@
+{% extends 'clubapps/base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body, html {
+        height: 100%;
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background-color: #E6F4EA; /* soft lime-yellow */
+        color: #333;
+    }
+
+    .profile-container {
+        max-width: 600px;
+        margin: 60px auto;
+        background: #FCFFEB; /* lighter yellow */
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        padding: 30px 40px;
+        text-align: center;
+    }
+
+    h2 {
+        color: #6B8E23; /* olive green */
+        font-weight: 600;
+        margin-bottom: 25px;
+    }
+
+    table.profile-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 25px;
+        font-size: 1.1rem;
+    }
+
+    table.profile-table th,
+    table.profile-table td {
+        padding: 12px 20px;
+        border-bottom: 1px solid #D3E4CD;
+        text-align: left;
+    }
+
+    table.profile-table tr:nth-child(even) {
+        background-color: #F2F9F1;
+    }
+
+    table.profile-table th {
+        background-color: #B9D67B; /* lime green */
+        color: white;
+        font-weight: 600;
+        border-radius: 8px 8px 0 0;
+    }
+
+    p {
+        font-size: 1rem;
+        margin: 5px 0;
+        color: #556B2F; /* dark olive */
+    }
+
+    a {
+        display: inline-block;
+        background-color: #A3C653; /* medium lime */
+        color: white;
+        padding: 12px 30px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+        margin-top: 20px;
+    }
+
+    a:hover {
+        background-color: #7B9F35;
+    }
+
+    /* New pink button style */
+    .update-btn {
+        display: inline-block;
+        background-color: #e91e63; /* pink */
+        color: white;
+        padding: 12px 30px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+        margin-top: 20px;
+        margin-left: 15px;
+    }
+
+    .update-btn:hover {
+        background-color: #ad1457;
+    }
+</style>
+
+<div class="profile-container">
+    <h2>Your Profile</h2>
+    <table class="profile-table">
+        <tr><th>Full Name</th><td>{{ user_data.full_name }}</td></tr>
+        <tr><th>Username</th><td>{{ user_data.username }}</td></tr>
+        <tr><th>Email</th><td>{{ user_data.email }}</td></tr>
+        <tr><th>Club</th><td>{{ user_data.club }}</td></tr>
+        <tr><th>Role</th><td>{{ user_data.role }}</td></tr>
+    </table>
+
+    <p><strong>Username:</strong> {{ user_data.username }}</p>
+    <p><strong>Full Name:</strong> {{ user_data.full_name }}</p>
+    <p><strong>Email:</strong> {{ user_data.email }}</p>
+
+    <a href="{% url 'dashboard' %}">Back to Dashboard</a>
+    <a href="{% url 'update_profile' %}" class="update-btn">Update Profile</a>
+</div>
+{% endblock %}

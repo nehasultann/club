@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Club App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sidebar">
+            <h2>🏛️ Club Panel</h2>
+            <ul>
+                <li><a href="{% url 'dashboard' %}" class="nav-link">🏠 Dashboard</a></li>
+                <li><a href="{% url 'profile' %}" class="nav-link">👤 Profile</a></li>
+                <li><a href="{% url 'logout' %}" class="nav-link">🚪 Logout</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</body>
+</html>
